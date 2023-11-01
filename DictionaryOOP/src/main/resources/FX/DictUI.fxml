@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@Dress.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DictController">
+   <children>
+      <Button fx:id="GgAPIBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="8.0" layoutY="316.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="menu-item" stylesheets="@Dress.css" text="        GgAPI">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/translate.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip fx:id="tooltip1" text="Phiên dịch" />
+         </tooltip></Button>
+      <Button fx:id="addWordBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="9.0" layoutY="242.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="menu-item" stylesheets="@Dress.css" text="        add">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/new-document.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip fx:id="tooltip2" text="Thêm từ vựng" />
+         </tooltip></Button>
+      <Button fx:id="searchMenuBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="6.35" layoutY="168.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="menu-item" stylesheets="@Dress.css" text="        search" textFill="TRANSPARENT">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="21.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/magnifying_glass_search_icon_208685.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip fx:id="tooltip3" text="Tra từ" />
+         </tooltip></Button>
+      <Button alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="8.0" layoutY="390.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="menu-item" stylesheets="@Dress.css" text="Game">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/28241669-transformed-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Trò chơi " />
+         </tooltip></Button>
+      <Button fx:id="exitBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="870.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" styleClass="exit-button" stylesheets="@Dress.css" text="                      Exit">
+         <graphic>
+            <ImageView fitHeight="13.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/PNGtreeCross.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <AnchorPane fx:id="container" layoutX="58.0" layoutY="29.0" prefHeight="563.0" prefWidth="834.0" styleClass="container" stylesheets="@Dress.css" />
+      <Label layoutX="58.0" layoutY="5.0" text="\@deathsml" />
+      <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Sauce/5373110.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
