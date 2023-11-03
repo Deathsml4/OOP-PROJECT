@@ -37,7 +37,7 @@ public class InsertApp {
      * @param word_explain giải thích
      */
     public void insert(String word_target, String word_explain) {
-        String sql = "INSERT INTO User(word, description) VALUES(?,?)";
+        String sql = "INSERT INTO av (word, description) VALUES(?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
