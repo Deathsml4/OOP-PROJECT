@@ -65,6 +65,15 @@ public class Trie {
         return getSearchWords();
     }
 
+    public static ArrayList<String> showAllWord() {
+        searchWords.clear();
+        //int length = prefix.length();
+        TrieNode p = root;
+
+        dfsGetWordsSubtree(p, "");
+        return getSearchWords();
+    }
+
     public static void delete(String target) {
         int length = target.length();
 

@@ -1,5 +1,7 @@
 package src;
 
+import src.Trie.Trie;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +14,7 @@ import java.sql.ResultSet;
  * @author sqlitetutorial.net
  */
 public class InsertApp {
+    public static final int DATABASE_SIZE = 108854;
 
     /**
      * Connect to the test.db database
@@ -44,19 +47,20 @@ public class InsertApp {
             pstmt.setString(1, word_target);
             pstmt.setString(2, word_explain);
             pstmt.executeUpdate();
+            conn.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
     /**
-     * Get the warehouse whose capacity greater than a specified capacity
+     * Get the result for a keyword.
      * @param wt word_target
      */
     public void hasTheKeyword(String wt){
         String sql = "SELECT word, description "
-                + "FROM av WHERE word LIKE ? " +
-                "LIMIT 10";
+                + "FROM av WHERE word LIKE ? " /*+
+                "LIMIT 10"*/;
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt  = conn.prepareStatement(sql)){
@@ -72,6 +76,8 @@ public class InsertApp {
                         rs.getString("description")); //+ "\t" +
                         //rs.getDouble("capacity"));
             }
+
+            conn.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -79,8 +85,8 @@ public class InsertApp {
 
     public void hasTheExplain(String wt){
         String sql = "SELECT word, description "
-                + "FROM words WHERE desciption LIKE ? " +
-                "LIMIT 10";
+                + "FROM va WHERE word LIKE ? " /*+
+                "LIMIT 10"*/;
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt  = conn.prepareStatement(sql)){
@@ -96,6 +102,34 @@ public class InsertApp {
                         rs.getString("description")); //+ "\t" +
                 //rs.getDouble("capacity"));
             }
+
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void insertToTrie(Trie trie){
+        String sql = "SELECT word "
+                + "FROM av" /*+
+                "LIMIT 10"*/;
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt  = conn.prepareStatement(sql)){
+
+            // set the value
+            //pstmt.setInt(1, id);
+            //
+            ResultSet rs  = pstmt.executeQuery();
+
+            // loop through the result set
+            while (rs.next()) {
+                String str = rs.getString("word");
+                trie.insert(str);
+                //System.out.println(str);
+            }
+
+            conn.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -112,7 +146,8 @@ public class InsertApp {
         /*app.insert("rose", "hoa hồng");
         app.insert("strawberry", "dâu tây");
         app.insert("raspberry", "quả mâm xôi");*/
-        app.hasTheKeyword("");
+        //app.hasTheKeyword("sex");
+        app.hasTheExplain("ánh");
     }
 
 }
