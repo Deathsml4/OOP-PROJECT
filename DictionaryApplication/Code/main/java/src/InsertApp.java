@@ -23,7 +23,7 @@ public class InsertApp {
      */
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:C:/Code part 2/Java Code/DictionaryApplication/dict_hh.db";
+        String url = "jdbc:sqlite:C:/Code part 2/Java Code/DictionaryApplication/new_dict_hh.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -40,7 +40,7 @@ public class InsertApp {
      * @param word_explain giải thích
      */
     public void insert(String word_target, String word_explain) {
-        String sql = "INSERT INTO av (word, description) VALUES(?,?)";
+        String sql = "INSERT INTO User (word, description) VALUES(?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -59,14 +59,14 @@ public class InsertApp {
      */
     public void hasTheKeyword(String wt){
         String sql = "SELECT word, description "
-                + "FROM av WHERE word LIKE ? " /*+
+                + "FROM tbl_edict WHERE word = ? " /*+
                 "LIMIT 10"*/;
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt  = conn.prepareStatement(sql)){
 
             // set the value
-            pstmt.setString(1,wt + '%');
+            pstmt.setString(1,wt);
             //
             ResultSet rs  = pstmt.executeQuery();
 
@@ -111,7 +111,7 @@ public class InsertApp {
 
     public void insertToTrie(Trie trie){
         String sql = "SELECT word "
-                + "FROM av" /*+
+                + "FROM tbl_edict" /*+
                 "LIMIT 10"*/;
 
         try (Connection conn = this.connect();
