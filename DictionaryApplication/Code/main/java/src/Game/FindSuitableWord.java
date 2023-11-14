@@ -1,8 +1,10 @@
 package src.Game;
 
-import src.InsertApp;
+import javax.swing.text.Style;
+import java.util.Scanner;
 import java.lang.Math;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class FindSuitableWord {
     private static final Integer NUMBER_OF_QUESTIONS = 50;
@@ -12,6 +14,7 @@ public class FindSuitableWord {
     private String option_b;
     private String option_c;
     private String option_d;
+    private ArrayList<Boolean> used = new ArrayList<>();
 
     private Connection connect() {
         // SQLite connection string
@@ -28,11 +31,23 @@ public class FindSuitableWord {
     public int getRandom() {
         double rand = Math.random();
         int random = (int) (rand * NUMBER_OF_QUESTIONS + 1);
+        if (used.get(random)) {
+            return getRandom();
+        }
+
         return random;
     }
 
     public FindSuitableWord() {
+        used.add(true);
+        for (int i = 1; i <= NUMBER_OF_QUESTIONS; i++) {
+            used.add(false);
+        }
+    }
+
+    public void initQuestion() {
         int rand = getRandom();
+        used.set(rand, true);
         String sql = "SELECT question, option_a, option_b, option_c, option_d, answer " +
                 "FROM DictGameDtb " +
                 "WHERE id = ? ";
@@ -88,8 +103,23 @@ public class FindSuitableWord {
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         FindSuitableWord f = new FindSuitableWord();
-        f.print();
-        System.out.println(f.choose('a'));
+        int health = 1;
+        int point = 0;
+        while (health > 0 && point <= 10) {
+            f.initQuestion();
+            f.print();
+            char your_answer = sc.next().charAt(0);
+            if (f.choose(your_answer)) {
+                ++point;
+                continue;
+            }
+
+            --health;
+        }
+
+        System.out.println("Game over");
+        System.out.println("Score: " + point);
     }
 }
