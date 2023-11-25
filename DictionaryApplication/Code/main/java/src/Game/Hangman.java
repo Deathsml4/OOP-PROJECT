@@ -8,8 +8,10 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Hangman {
+    public static int MAX_LIFE = 5;
     private String word_target;
-    private int life;
+    private int life = MAX_LIFE;
+    private int suggestsRemain = 7;
     private Map<Character, Character> current = new HashMap<>();
 
     private Connection connect() {
@@ -31,9 +33,17 @@ public class Hangman {
         return random;
     }
 
+    public boolean isAtoZ(char a) {
+        if (a < 'A' || a > 'Z') {
+            return false;
+        }
+
+        return true;
+    }
+
     private void addWord(String word) {
         for (int i = 0; i < word.length(); i++) {
-            if (word.charAt(i) == ' ' || word.charAt(i) == '-') {
+            if (!isAtoZ(word.charAt(i))) {
                 current.put(word.charAt(i), word.charAt(i));
                 continue;
             }
@@ -43,7 +53,6 @@ public class Hangman {
     }
 
     public void init() {
-        life = 5;
         current.clear();
         int random = getRandom();
         String sql = "SELECT word " +
@@ -112,15 +121,72 @@ public class Hangman {
         displayCurrentWord();
     }
 
+    public void suggest() {
+        if (suggestsRemain == 0) {
+            System.out.println("Sorry, out of suggestions!");
+            return;
+        }
+
+        if (win()) {
+            System.out.println("You have won");
+            return;
+        }
+
+        --suggestsRemain;
+        for (int i = 0; i < word_target.length(); i++) {
+            char b = word_target.charAt(i);
+            if (current.get(b) != b) {
+                current.replace(b, b);
+                displayCurrentWord();
+                break;
+            }
+        }
+    }
+
+    public String getResult() {
+        return word_target;
+    }
+
     public static void main(String[] args) {
         Hangman h = new Hangman();
-        h.init();
-        h.displayCurrentWord();
         Scanner sc = new Scanner(System.in);
         char a;
-        while (sc.hasNext()) {
-            a = sc.nextLine().charAt(0);
-            h.guess(a);
+        String temp;
+        boolean gameEnded = false;
+        while (!gameEnded) {
+            h.init();
+            h.displayCurrentWord();
+            while (h.life > 0 && !h.win()) {
+                System.out.println("[guess/suggest]"); // Chọn suggest hoặc kí tự mà bạn đoán
+                temp = sc.nextLine();
+                if (temp.equals("suggest")) {
+                    h.suggest();
+                    continue;
+                }
+
+                a = temp.charAt(0);
+                h.guess(a);
+            }
+
+            if (h.life > 0) {
+                continue;
+            }
+
+            if (h.life == 0) {
+                System.out.println("Result is : " + h.getResult());
+            }
+
+            System.out.println("Continue ? [true/false]"); // Chọn true để tiếp, false để thôi
+            gameEnded = !(sc.nextBoolean());
+            if (gameEnded) {
+                break;
+            }
+
+            h.life = MAX_LIFE;
+            h.suggestsRemain = 7;
+            if (sc.hasNextLine()) {
+                temp = sc.nextLine();
+            }
         }
     }
 }
