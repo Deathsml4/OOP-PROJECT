@@ -33,6 +33,101 @@ public class InsertApp {
         return conn;
     }
 
+    public void deleteHistory() {
+        String sql = "DELETE FROM search_history"
+                + " WHERE id = (SELECT MIN(id) FROM search_history)";
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();
+            pstmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void deleteDuplicateHistory(String wt) {
+        String sql = "DELETE FROM search_history "
+                + "WHERE word = ?";
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, wt);
+            pstmt.executeUpdate();
+            pstmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public boolean checkDuplicateHistory(String wt) {
+        boolean ret = false;
+        String sql = "SELECT COUNT(id) AS total FROM search_history "
+                + "WHERE word = ?";
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, wt);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                ret = !(rs.getInt("total") == 0);
+            }
+            pstmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return ret; // true if duplicate, else false if not or error
+    }
+
+    public boolean checkHistory() {
+        String sql = "SELECT COUNT(word) AS total FROM search_history";
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt  = conn.prepareStatement(sql);
+            ResultSet rs  = pstmt.executeQuery();
+            if (rs.next()) {
+                int ret = rs.getInt("total");
+                boolean res = !(ret > 10);
+                pstmt.close();
+                conn.close();
+                return res;
+            } else {
+                pstmt.close();
+                conn.close();
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return true;
+    }
+    public void insertToHistory(String word_target, String word_explain) {
+        String sql = "INSERT INTO search_history (word, description) VALUES(?,?)";
+        if (checkDuplicateHistory(word_target)) {
+            deleteDuplicateHistory(word_target);
+        }
+        try {
+            Connection conn = this.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, word_target);
+            pstmt.setString(2, word_explain);
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            conn.close();
+
+            while (!checkHistory()) {
+                deleteHistory();
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     /**
      * Insert a new row into the warehouses table
      *
@@ -47,6 +142,7 @@ public class InsertApp {
             pstmt.setString(1, word_target);
             pstmt.setString(2, word_explain);
             pstmt.executeUpdate();
+            pstmt.close();
             conn.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -70,14 +166,21 @@ public class InsertApp {
             //
             ResultSet rs  = pstmt.executeQuery();
 
+            String word_target = "";
+            String word_explain = "";
             // loop through the result set
             while (rs.next()) {
-                System.out.println(rs.getString("word") +  "\t" +
-                        rs.getString("description")); //+ "\t" +
+                word_target = rs.getString("word");
+                word_explain = rs.getString("description");
+                System.out.println(word_target +  "\t" +
+                        word_explain); //+ "\t" +
                         //rs.getDouble("capacity"));
+                //insertToHistory(word_target, word_explain);
             }
 
+            pstmt.close();
             conn.close();
+            insertToHistory(word_target, word_explain);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -103,6 +206,7 @@ public class InsertApp {
                 //rs.getDouble("capacity"));
             }
 
+            pstmt.close();
             conn.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -129,6 +233,7 @@ public class InsertApp {
                 //System.out.println(str);
             }
 
+            pstmt.close();
             conn.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -146,8 +251,8 @@ public class InsertApp {
         /*app.insert("rose", "hoa hồng");
         app.insert("strawberry", "dâu tây");
         app.insert("raspberry", "quả mâm xôi");*/
-        //app.hasTheKeyword("sex");
-        app.hasTheExplain("ánh");
+        app.hasTheKeyword("border");
+        //app.hasTheExplain("ánh");
     }
 
 }
