@@ -1,12 +1,11 @@
 package src.Game;
 
-import javax.swing.text.Style;
 import java.util.Scanner;
 import java.lang.Math;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class FindSuitableWord {
+public class FindSuitableWord extends Game {
     private static final Integer NUMBER_OF_QUESTIONS = 50;
     private String question;
     private String answer;
@@ -17,7 +16,7 @@ public class FindSuitableWord {
     private ArrayList<Boolean> used = new ArrayList<>();
     private String[] arr = new String[4];
 
-    private Connection connect() {
+    /*private Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:C:/Code part 2/Java Code/DictionaryApplication/new_dict_hh.db";
         Connection conn = null;
@@ -27,7 +26,7 @@ public class FindSuitableWord {
             System.out.println(e.getMessage());
         }
         return conn;
-    }
+    }*/
 
     public int getRandom() {
         double rand = Math.random();
@@ -46,7 +45,8 @@ public class FindSuitableWord {
         }
     }
 
-    public void initQuestion() {
+    @Override
+    public void init() {
         int rand = getRandom();
         used.set(rand, true);
         String sql = "SELECT question, option_a, option_b, option_c, option_d, answer " +
@@ -128,7 +128,7 @@ public class FindSuitableWord {
         int health = 1;
         int point = 0;
         while (health > 0 && point < 10) {
-            f.initQuestion();
+            f.init();
             f.print();
             char your_answer = sc.next().charAt(0);
             if (f.choose(your_answer)) {

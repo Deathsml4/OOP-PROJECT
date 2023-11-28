@@ -7,14 +7,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Hangman {
+public class Hangman extends Game {
     public static int MAX_LIFE = 5;
     private String word_target;
-    private int life = MAX_LIFE;
     private int suggestsRemain = 7;
     private Map<Character, Character> current = new HashMap<>();
 
-    private Connection connect() {
+    /*private Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:C:/Code part 2/Java Code/DictionaryApplication/new_dict_hh.db";
         Connection conn = null;
@@ -24,7 +23,7 @@ public class Hangman {
             System.out.println(e.getMessage());
         }
         return conn;
-    }
+    }*/
 
     public int getRandom() {
         double rand = Math.random();
@@ -52,6 +51,7 @@ public class Hangman {
         }
     }
 
+    @Override
     public void init() {
         current.clear();
         int random = getRandom();
@@ -81,6 +81,7 @@ public class Hangman {
     }
 
     public Hangman() {
+        life = MAX_LIFE;
     }
 
     public void displayCurrentWord() {
@@ -143,7 +144,7 @@ public class Hangman {
         }
     }
 
-    public String getResult() {
+    public String getAnswer() {
         return word_target;
     }
 
@@ -173,7 +174,7 @@ public class Hangman {
             }
 
             if (h.life == 0) {
-                System.out.println("Result is : " + h.getResult());
+                System.out.println("Result is : " + h.getAnswer());
             }
 
             System.out.println("Continue ? [true/false]"); // Chọn true để tiếp, false để thôi
