@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="563.0" prefWidth="834.0" styleClass="container" stylesheets="@Dress.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddWordController">
+    <children>
+        <AnchorPane layoutY="11.0" prefHeight="502.0" prefWidth="770.0">
+            <children>
+                <Pane layoutX="2.0" prefHeight="46.0" prefWidth="828.0" styleClass="title" stylesheets="@Dress.css">
+                    <children>
+                        <Label layoutX="20.0" prefHeight="45.0" prefWidth="240.0" text="Thêm từ vựng mới" textFill="#b4efc6">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Sauce/new-document.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                </Pane>
+                <Label layoutX="38.0" layoutY="55.0" text="Từ vựng" textFill="#76c893">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Sauce/Aaicon-removebg-preview.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Label>
+                <TextField fx:id="wordInput" layoutX="38.0" layoutY="85.0" prefHeight="34.0" prefWidth="366.0" promptText="Nhập từ vựng cần thêm..." styleClass="english-word-input" stylesheets="@Dress.css" />
+                <Label layoutX="432.0" layoutY="55.0" text="Ý nghĩa" textFill="#76c893">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Sauce/search_5585762.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Label>
+                <TextArea fx:id="explanationInput" layoutX="432.0" layoutY="85.0" prefHeight="350.0" prefWidth="366.0" promptText="Nhập nghĩa của từ vựng cần thêm...." styleClass="meaning-input" stylesheets="@Dress.css" wrapText="true" />
+                <Button fx:id="addBtn" layoutX="38.5" layoutY="139.0" mnemonicParsing="false" onAction="#handleClickAddBtn" prefHeight="34.0" prefWidth="110.0" styleClass="add-button" stylesheets="@Dress.css" text="Thêm từ" />
+                <Label fx:id="successAlert" alignment="CENTER" layoutX="157.0" layoutY="138.0" prefHeight="32.0" prefWidth="246.0" styleClass="success-alert" stylesheets="@Dress.css" text="Thành công">
+                    <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Sauce/Tick-Icon-SVG-039mvd.png" />
+                            </image>
+                        </ImageView>
+                    </graphic></Label>
+            <ImageView fitHeight="242.0" fitWidth="366.0" layoutX="38.75" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/pngtree-street-skateboarding-character-illustration-skate-transformed-removebg-preview.png" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

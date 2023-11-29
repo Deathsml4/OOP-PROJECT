@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="563.0" prefWidth="834.0" styleClass="container" stylesheets="@Dress.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchController">
+    <children>
+        <Pane layoutX="-2.0" prefHeight="91.0" prefWidth="834.0" stylesheets="@Dress.css">
+            <children>
+                <Label fx:id="notAvailableAlert" alignment="CENTER" layoutX="13.5" layoutY="27.0" opacity="0.9" prefHeight="20.0" prefWidth="280.0" styleClass="warning-alert" stylesheets="@Dress.css" text="Từ này không có sẵn, bạn có thể thêm từ vựng!">
+               <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Sauce/caution.png" />
+                            </image>
+                        </ImageView>
+               </graphic>
+            </Label>
+                <Pane fx:id="searchBox" layoutX="7.5" layoutY="47.0" prefHeight="35.0" prefWidth="292.0" styleClass="search-box" stylesheets="@Dress.css">
+                    <children>
+                        <TextField fx:id="searchTerm" blendMode="HARD_LIGHT" layoutX="29.0" layoutY="3.0" prefHeight="30.0" prefWidth="230.0" promptText="Nhập từ cần tìm kiếm ..." styleClass="search-field" stylesheets="@Dress.css" />
+                        <ImageView fitHeight="20.0" fitWidth="18.0" layoutX="11.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Sauce/pngwingcom.png" />
+                            </image>
+                        </ImageView>
+                        <Button fx:id="cancelBtn" layoutX="256.0" layoutY="4.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" styleClass="cancel-button" stylesheets="@Dress.css">
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Sauce/Cross2.png" />
+                                    </image>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
+                                </ImageView>
+                            </graphic>
+                            <tooltip>
+                                <Tooltip text="Xóa" />
+                            </tooltip>
+                        </Button>
+                    </children>
+                </Pane>
+            <ImageView fitHeight="91.0" fitWidth="55.0" layoutX="377.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/127723095-vector-flat-style-hip-hop-young-transformed__1_-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="91.0" fitWidth="90.0" layoutX="680.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/88354574-professional-rapper-vector-transformed-removebg-preview.png" />
+               </image>
+            </ImageView>
+            </children>
+        </Pane>
+        <AnchorPane layoutY="92.0" prefHeight="415.0" prefWidth="769.0" styleClass="main-searcher" stylesheets="@Dress.css">
+            <children>
+                <AnchorPane layoutX="264.0" prefHeight="463.0" prefWidth="563.0">
+                    <children>
+                        <Pane layoutX="39.0" prefHeight="46.0" prefWidth="520.0" styleClass="title" stylesheets="@Dress.css">
+                            <children>
+                                <Label layoutX="13.0" prefHeight="45.0" prefWidth="157.0" text="Định nghĩa" textFill="#b4efc6">
+                                    <font>
+                                        <Font name="System Bold" size="17.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../Sauce/search_5585762.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane layoutX="39.0" layoutY="51.0" prefHeight="407.0" prefWidth="520.0" styleClass="definition-wrapper" stylesheets="@Dress.css">
+                            <children>
+                                <TextArea fx:id="explanation" layoutX="2.0" layoutY="54.0" prefHeight="347.0" prefWidth="515.0" styleClass="explanation-field" stylesheets="@Dress.css" text="Explain" wrapText="true" />
+                                <Pane layoutX="3.0" layoutY="52.0" opacity="0.74" prefHeight="4.0" prefWidth="515.0" styleClass="explanation-menu" stylesheets="@Dress.css" />
+                                <Pane fx:id="headerOfExplanation" layoutX="1.0" layoutY="6.0" prefHeight="45.0" prefWidth="542.0">
+                                    <children>
+                                        <Button layoutX="369.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleClickSoundBtn" prefHeight="32.0" prefWidth="32.0" styleClass="volume-button" stylesheets="@Dress.css">
+                                            <graphic>
+                                                <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../Sauce/green-radio-sound-waves-14680.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <tooltip>
+                                                <Tooltip text="Phát âm" />
+                                            </tooltip>
+                                        </Button>
+                                        <Button layoutX="469.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleClickDeleteBtn" prefHeight="32.0" prefWidth="32.0" styleClass="delete-button" stylesheets="@Dress.css">
+                                            <graphic>
+                                                <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../Sauce/green-delete-10438.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <tooltip>
+                                                <Tooltip text="Xóa từ " />
+                                            </tooltip>
+                                        </Button>
+                                        <Label fx:id="englishWord" layoutX="7.41" layoutY="5.0" prefHeight="35.0" prefWidth="273.0" text="abbbbbbbbbbbbbbbbbbb" textFill="#76c893" wrapText="true">
+                                            <font>
+                                                <Font name="System Bold" size="17.0" />
+                                            </font>
+                                            <padding>
+                                                <Insets left="5.0" />
+                                            </padding>
+                                            <graphic>
+                                                <ImageView fitHeight="29.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../Sauce/Aaicon-removebg-preview.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Label>
+                                        <Button layoutX="419.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleClickEditBtn" prefHeight="32.0" prefWidth="32.0" styleClass="edit-button" stylesheets="@Dress.css">
+                                            <graphic>
+                                                <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" styleClass="editBtn">
+                                                    <image>
+                                                        <Image url="@../Sauce/icons8-edit-50.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <tooltip>
+                                                <Tooltip text="Chỉnh sửa nghĩa từ" />
+                                            </tooltip>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Button fx:id="saveBtn" layoutX="471.0" layoutY="65.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleClickSaveBtn" prefHeight="32.0" prefWidth="32.0" styleClass="save-button" stylesheets="@Dress.css">
+                                    <graphic>
+                                        <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../Sauce/Tick-Icon-SVG-039mvd.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <tooltip>
+                                        <Tooltip text="Lưu chỉnh sửa" />
+                                    </tooltip>
+                                </Button>
+                            </children>
+                        </Pane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="searchResult" layoutX="2.0" prefHeight="407.0" prefWidth="263.0">
+                    <children>
+                        <Pane layoutX="3.0" prefHeight="46.0" prefWidth="292.0" styleClass="title" stylesheets="@Dress.css">
+                            <children>
+                                <Label fx:id="headerList" layoutX="18.0" prefHeight="45.0" prefWidth="230.0" text="Danh sách từ vựng" textFill="#b4efc6">
+                                    <font>
+                                        <Font name="System Bold" size="16.5" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="29.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../Sauce/menu_5587264.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <ListView fx:id="listResults" layoutX="3.0" layoutY="51.0" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#handleMouseClickAWord" prefHeight="408.0" prefWidth="290.0" styleClass="list-cell" stylesheets="@Dress.css" />
+                  <Button fx:id="delHistory" layoutX="257.0" layoutY="59.3" mnemonicParsing="false" onAction="#handleOnClickDelHistory" prefHeight="25.0" prefWidth="30.0" styleClass="cancel-button" stylesheets="@Dress.css">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Sauce/Cross2.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Xóa lịch sử " />
+                     </tooltip>
+                  </Button>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

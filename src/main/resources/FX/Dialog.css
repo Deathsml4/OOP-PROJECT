@@ -1,0 +1,23 @@
+.dialog-pane{
+    -fx-background-color: #fff;
+    -fx-background-radius: 10;
+}
+.dialog-pane .button{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 0, 0);
+    -fx-text-fill: #ecf0f1;
+    -fx-background-radius: 5px;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-background-color: linear-gradient(to bottom left, #34a0a4, #52b69a);
+    -fx-pref-width: 90px;
+    -fx-pref-height: 30px;
+}
+.dialog-pane .button:hover{
+    -fx-background-color: linear-gradient(to top left, #52b69a, #34a0a4);
+}
+.dialog-pane .button:pressed{
+    -fx-background-color: linear-gradient(to top left, #52b69a, #34a0a4);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
+}
