@@ -1,4 +1,4 @@
-/*package Controller;
+package Controller;
 
 import Alerts.Alerts;
 
@@ -11,7 +11,7 @@ import javafx.scene.input.KeyEvent;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
+import InsertApp.InsertApp;
 public class AddWordController implements Initializable{
   @FXML
   private Button addBtn;
@@ -25,6 +25,7 @@ public class AddWordController implements Initializable{
   @FXML
   private Label successAlert;
   private Alerts alerts = new Alerts();
+  private InsertApp app = new InsertApp();
   private void resetInput() {
     wordInput.setText("");
     explanationInput.setText("");
@@ -32,10 +33,16 @@ public class AddWordController implements Initializable{
 
   private void showSuccessAlert() {
     successAlert.setVisible(true);
-    dictionaryManagement.setTimeout(() -> successAlert.setVisible(false), 1500);
+    new Thread(() -> {
+      try {
+        Thread.sleep(6000);
+        successAlert.setVisible(false);
+      } catch (Exception e) {
+        System.err.println(e);
+      }
+    }).start();
   }
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    dictionaryManagement.insertFromFile(dictionary, path);
     if (explanationInput.getText().isEmpty() || wordInput.getText().isEmpty()) addBtn.setDisable(true);
 
     wordInput.setOnKeyTyped(new EventHandler<KeyEvent>() {
@@ -62,12 +69,9 @@ public class AddWordController implements Initializable{
     Optional<ButtonType> option = alertConfirmation.showAndWait();
     String englishWord = wordInput.getText().trim();
     String meaning = explanationInput.getText().trim();
-
     if (option.get() == ButtonType.OK) {
-      Word word = new Word(englishWord, meaning);
-      if (dictionary.contains(word)) {
-        int indexOfWord = dictionaryManagement.searchWord(dictionary, englishWord);
-        Alert selectionAlert = alerts.alertConfirmation("Oops!", "Từ này đã tồn tại.\nBạn có muốn thay thế hoặc bổ sung định nghĩa vừa nhập cho định nghĩa cũ không?");
+      if (app.wordCheck(englishWord) != null) {
+        Alert selectionAlert = alerts.alertConfirmation("Oops!", "Từ này đã tồn tại.\nBạn có muốn thay thế hoặc bổ sung định nghĩa vừa nhập?");
         selectionAlert.getButtonTypes().clear();
         ButtonType replaceBtn = new ButtonType("Thay thế");
         ButtonType insertBtn = new ButtonType("Bổ sung");
@@ -76,25 +80,24 @@ public class AddWordController implements Initializable{
         Optional<ButtonType> selection = selectionAlert.showAndWait();
 
         if (selection.get() == replaceBtn) {
-          dictionary.get(indexOfWord).setWordExplain(meaning);
-          dictionaryManagement.exportToFile(dictionary, path);
+          app.replace(englishWord, meaning);
           showSuccessAlert();
         }
         if (selection.get() == insertBtn) {
-          String oldMeaning = dictionary.get(indexOfWord).getWordExplain();
-          dictionary.get(indexOfWord).setWordExplain(oldMeaning + "\n= " + meaning);
-          dictionaryManagement.exportToFile(dictionary, path);
+          app.edit(englishWord, meaning);
           showSuccessAlert();
         }
         if (selection.get() == cancelBtn) alerts.showAlertInfo("Thông báo", "Không có sự thay đổi nào!");
       } else {
-        dictionary.add(word);
-        dictionaryManagement.addWord(word, path);
+        app.insert(englishWord, meaning);
         showSuccessAlert();
       }
       addBtn.setDisable(true);
       resetInput();
-    } else if (option.get() == new ButtonType("Hủy")) alerts.showAlertInfo("Thông báo", "Không có sự thay đổi nào!");
+    } else if (option.get() == ButtonType.CANCEL) {
+      alerts.showAlertInfo("Thông báo", "Không có sự thay đổi nào!");
+      resetInput();
+      addBtn.setDisable(true);
+    }
   }
 }
-*/
