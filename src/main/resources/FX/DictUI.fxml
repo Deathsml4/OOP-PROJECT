@@ -7,9 +7,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@Dress.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DictController">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@Dress.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DictController">
    <children>
-      <Button fx:id="GgAPIBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="8.0" layoutY="316.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="menu-item" stylesheets="@Dress.css" text="        GgAPI">
+      <Button fx:id="GgAPIBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="8.7" layoutY="316.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="menu-item" stylesheets="@Dress.css" text="        GgAPI">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -20,18 +20,18 @@
          <tooltip>
             <Tooltip fx:id="tooltip1" text="Phiên dịch" />
          </tooltip></Button>
-      <Button fx:id="addWordBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="9.0" layoutY="242.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="menu-item" stylesheets="@Dress.css" text="        add">
+      <Button fx:id="addWordBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="8.6" layoutY="242.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="menu-item" stylesheets="@Dress.css" text="        add">
+         <tooltip>
+            <Tooltip fx:id="tooltip2" text="Thêm từ vựng" />
+         </tooltip>
          <graphic>
-            <ImageView fitHeight="21.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Sauce/new-document.png" />
                </image>
             </ImageView>
-         </graphic>
-         <tooltip>
-            <Tooltip fx:id="tooltip2" text="Thêm từ vựng" />
-         </tooltip></Button>
-      <Button fx:id="searchMenuBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="6.35" layoutY="168.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="menu-item" stylesheets="@Dress.css" text="        search" textFill="TRANSPARENT">
+         </graphic></Button>
+      <Button fx:id="searchMenuBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="7.2" layoutY="168.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="menu-item" stylesheets="@Dress.css" text="        search" textFill="TRANSPARENT">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="21.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -42,7 +42,7 @@
          <tooltip>
             <Tooltip fx:id="tooltip3" text="Tra từ" />
          </tooltip></Button>
-      <Button alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="8.0" layoutY="390.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="menu-item" stylesheets="@Dress.css" text="Game">
+      <Button fx:id="gameBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="7.9" layoutY="390.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="42.0" styleClass="menu-item" stylesheets="@Dress.css" text="Game">
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -69,5 +69,14 @@
             <Image url="@../Sauce/5373110.png" />
          </image>
       </ImageView>
+      <Button fx:id="minBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="842.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="26.0" styleClass="min-button" stylesheets="@Dress.css" text="                     Minimize">
+         <graphic>
+            <ImageView fitHeight="13.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/minus_56889.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

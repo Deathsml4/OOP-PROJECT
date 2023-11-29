@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ap" maxHeight="563.0" maxWidth="834.0" prefHeight="563.0" prefWidth="834.0" styleClass="container" stylesheets="@Dress.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HangManController">
+    <children>
+      <ImageView fitHeight="564.0" fitWidth="835.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Sauce/image.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="453.0" fitWidth="818.0" layoutX="11.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Sauce/NicePng_spray-can-png_1690953.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="321.0" fitWidth="290.0" layoutX="265.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Sauce/stock-vector-man-painting-graffiti-for-your-design-cartoon-character-street-artist-vector-illustration-401056948-31iEb1t-i-transformed-removebg.png" />
+         </image>
+      </ImageView>
+        <Button fx:id="btnY" blendMode="SRC_ATOP" layoutX="419.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="Y" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnT" blendMode="SRC_ATOP" layoutX="369.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="T" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnR" blendMode="SRC_ATOP" layoutX="319.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="R" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnE" blendMode="SRC_ATOP" layoutX="269.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="E" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnW" blendMode="SRC_ATOP" layoutX="219.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="W" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnQ" blendMode="SRC_ATOP" layoutX="169.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="Q" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnU" blendMode="SRC_ATOP" layoutX="469.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="U" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnI" blendMode="SRC_ATOP" layoutX="519.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="I" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnO" blendMode="SRC_ATOP" layoutX="569.0" layoutY="364.0" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="O" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnP" blendMode="SRC_ATOP" layoutX="619.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="P" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnA" blendMode="SRC_ATOP" layoutX="194.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="A" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnS" blendMode="SRC_ATOP" layoutX="244.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="S" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnD" alignment="CENTER" blendMode="SRC_ATOP" layoutX="294.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="D" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnF" blendMode="SRC_ATOP" layoutX="344.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="F" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnG" blendMode="SRC_ATOP" layoutX="394.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="G" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnH" blendMode="SRC_ATOP" layoutX="444.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="H" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnJ" blendMode="SRC_ATOP" layoutX="494.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="J" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnK" blendMode="SRC_ATOP" layoutX="544.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="K" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnZ" blendMode="SRC_ATOP" layoutX="244.0" layoutY="463.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="Z" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnX" blendMode="SRC_ATOP" layoutX="294.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="X" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnC" blendMode="SRC_ATOP" layoutX="344.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="C" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnV" blendMode="SRC_ATOP" layoutX="394.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="V" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnB" blendMode="SRC_ATOP" layoutX="444.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="B" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnN" blendMode="SRC_ATOP" layoutX="494.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="N" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnM" blendMode="SRC_ATOP" layoutX="543.0" layoutY="464.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="M" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnL" blendMode="SRC_ATOP" layoutX="594.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="50.0" prefWidth="50.0" styleClass="hang-man-word" stylesheets="@Dress.css" text="L" textAlignment="CENTER" textFill="#ecf0f1">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Button>
+          <Label fx:id="textWord" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="44.0" layoutY="151.0" prefHeight="140.0" prefWidth="746.0" styleClass="hang-man-text" stylesheets="@Dress.css" text="Text" textAlignment="CENTER" textFill="#faf2c3" wrapText="true">
+              <font>
+                  <Font name="Comic Sans MS" size="60.0" />
+              </font>
+          </Label>
+      <ImageView fx:id="loading" fitHeight="63.0" fitWidth="60.0" layoutX="148.9" layoutY="95.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Sauce/output-onlinegiftools.gif" />
+         </image>
+      </ImageView>
+        <Button fx:id="replayBtn" blendMode="SRC_ATOP" contentDisplay="GRAPHIC_ONLY" layoutX="61.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleOnReplayClick" prefHeight="50.0" prefWidth="110.0" styleClass="game-button" stylesheets="@Dress.css" text="Again" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/refresh-2-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+        </Button>
+      <Button fx:id="hintBtn" blendMode="SRC_ATOP" contentDisplay="GRAPHIC_ONLY" layoutX="61.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleOnHintClick" prefHeight="50.0" prefWidth="34.0" styleClass="game-button" stylesheets="@Dress.css" text="Again" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.5" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/light-bulb.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Gợi ý" />
+         </tooltip>
+      </Button>
+      <Label fx:id="endGameLb" alignment="CENTER" contentDisplay="CENTER" layoutX="191.0" layoutY="60.0" prefHeight="55.0" prefWidth="446.0" text="Khó luôn!" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="Comic Sans MS" size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="hintLb" alignment="CENTER" contentDisplay="CENTER" layoutX="114.0" layoutY="45.0" prefHeight="34.0" prefWidth="34.0" text="Label" textAlignment="CENTER" />
+      <Button fx:id="transBtn" blendMode="SRC_ATOP" contentDisplay="GRAPHIC_ONLY" layoutX="114.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleOnTransClick" prefHeight="50.0" prefWidth="110.0" styleClass="game-button" stylesheets="@Dress.css" text="Again" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="17.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/translate.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="can8" contentDisplay="GRAPHIC_ONLY" layoutX="632.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/spray-cans-graffiti-illustration_28918-140-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="can7" contentDisplay="GRAPHIC_ONLY" layoutX="582.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/spray-cans-graffiti-illustration_28918-140-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="can6" contentDisplay="GRAPHIC_ONLY" layoutX="532.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/spray-cans-graffiti-illustration_28918-140-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="can5" contentDisplay="GRAPHIC_ONLY" layoutX="482.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/spray-cans-graffiti-illustration_28918-140-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="can4" contentDisplay="GRAPHIC_ONLY" layoutX="317.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/spray-cans-graffiti-illustration_28918-140-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="can3" contentDisplay="GRAPHIC_ONLY" layoutX="267.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/spray-cans-graffiti-illustration_28918-140-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="can2" contentDisplay="GRAPHIC_ONLY" layoutX="217.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/spray-cans-graffiti-illustration_28918-140-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="can1" contentDisplay="GRAPHIC_ONLY" layoutX="167.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/spray-cans-graffiti-illustration_28918-140-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+    </children>
+</AnchorPane>

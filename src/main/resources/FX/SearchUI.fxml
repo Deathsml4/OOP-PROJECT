@@ -47,7 +47,7 @@
                                 </ImageView>
                             </graphic>
                             <tooltip>
-                                <Tooltip text="Clear" />
+                                <Tooltip text="Xóa" />
                             </tooltip>
                         </Button>
                     </children>
@@ -86,11 +86,11 @@
                         </Pane>
                         <Pane layoutX="39.0" layoutY="51.0" prefHeight="407.0" prefWidth="520.0" styleClass="definition-wrapper" stylesheets="@Dress.css">
                             <children>
-                                <TextArea fx:id="explanation" layoutX="2.0" layoutY="54.0" prefHeight="347.0" prefWidth="516.0" styleClass="explanation-field" stylesheets="@Dress.css" text="Explain" wrapText="true" />
+                                <TextArea fx:id="explanation" layoutX="2.0" layoutY="54.0" prefHeight="347.0" prefWidth="515.0" styleClass="explanation-field" stylesheets="@Dress.css" text="Explain" wrapText="true" />
                                 <Pane layoutX="3.0" layoutY="52.0" opacity="0.74" prefHeight="4.0" prefWidth="515.0" styleClass="explanation-menu" stylesheets="@Dress.css" />
                                 <Pane fx:id="headerOfExplanation" layoutX="1.0" layoutY="6.0" prefHeight="45.0" prefWidth="542.0">
                                     <children>
-                                        <Button layoutX="423.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleClickSoundBtn" prefHeight="32.0" prefWidth="32.0" styleClass="volume-button" stylesheets="@Dress.css">
+                                        <Button layoutX="369.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleClickSoundBtn" prefHeight="32.0" prefWidth="32.0" styleClass="volume-button" stylesheets="@Dress.css">
                                             <graphic>
                                                 <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
@@ -102,7 +102,7 @@
                                                 <Tooltip text="Phát âm" />
                                             </tooltip>
                                         </Button>
-                                        <Button layoutX="470.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleClickDeleteBtn" prefHeight="32.0" prefWidth="32.0" styleClass="delete-button" stylesheets="@Dress.css">
+                                        <Button layoutX="469.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleClickDeleteBtn" prefHeight="32.0" prefWidth="32.0" styleClass="delete-button" stylesheets="@Dress.css">
                                             <graphic>
                                                 <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
@@ -129,6 +129,18 @@
                                                 </ImageView>
                                             </graphic>
                                         </Label>
+                                        <Button layoutX="419.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleClickEditBtn" prefHeight="32.0" prefWidth="32.0" styleClass="edit-button" stylesheets="@Dress.css">
+                                            <graphic>
+                                                <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" styleClass="editBtn">
+                                                    <image>
+                                                        <Image url="@../Sauce/icons8-edit-50.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <tooltip>
+                                                <Tooltip text="Chỉnh sửa nghĩa từ" />
+                                            </tooltip>
+                                        </Button>
                                     </children>
                                 </Pane>
                                 <Button fx:id="saveBtn" layoutX="471.0" layoutY="65.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#handleClickSaveBtn" prefHeight="32.0" prefWidth="32.0" styleClass="save-button" stylesheets="@Dress.css">
@@ -143,18 +155,6 @@
                                         <Tooltip text="Lưu chỉnh sửa" />
                                     </tooltip>
                                 </Button>
-                                  <Button layoutX="424.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleClickEditBtn" prefHeight="32.0" prefWidth="32.0" styleClass="edit-button" stylesheets="@Dress.css">
-                                      <graphic>
-                                          <ImageView fitHeight="18.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" styleClass="editBtn">
-                                              <image>
-                                                  <Image url="@../Sauce/icons8-edit-50.png" />
-                                              </image>
-                                          </ImageView>
-                                      </graphic>
-                                      <tooltip>
-                                          <Tooltip text="Cho phép chỉnh sửa" />
-                                      </tooltip>
-                                  </Button>
                             </children>
                         </Pane>
                     </children>
@@ -178,6 +178,21 @@
                             </children>
                         </Pane>
                         <ListView fx:id="listResults" layoutX="3.0" layoutY="51.0" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#handleMouseClickAWord" prefHeight="408.0" prefWidth="290.0" styleClass="list-cell" stylesheets="@Dress.css" />
+                  <Button fx:id="delHistory" layoutX="257.0" layoutY="59.3" mnemonicParsing="false" onAction="#handleOnClickDelHistory" prefHeight="25.0" prefWidth="30.0" styleClass="cancel-button" stylesheets="@Dress.css">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Sauce/Cross2.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Xóa lịch sử " />
+                     </tooltip>
+                  </Button>
                     </children>
                 </AnchorPane>
             </children>
