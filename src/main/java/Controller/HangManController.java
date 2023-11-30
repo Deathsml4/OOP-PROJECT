@@ -12,11 +12,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -34,6 +36,8 @@ public class HangManController implements Initializable{
     @FXML
     private Label textWord, endGameLb, hintLb;
     @FXML
+    private Pane wasted;
+    @FXML
     private AnchorPane ap;
     @FXML
     private Button btnA, btnB, btnC, btnD, btnE, btnF, btnG, btnH, btnI, btnJ, btnK, btnL, btnM,
@@ -41,7 +45,7 @@ public class HangManController implements Initializable{
     @FXML
     private Button can1, can2, can3, can4, can5, can6, can7, can8;
     @FXML
-    private ImageView loading;
+    private ImageView loading, confetti;
     private final double MAX_WORD_WIDTH = 745;
     private final double wordFontSize = 60;
     private final double transFontSize = 45;
@@ -62,6 +66,10 @@ public class HangManController implements Initializable{
         hintLb.setId("hint-label");
         hangMan.init();
         endGameLb.setFont(labelFont);
+        confetti.setOpacity(0);
+        confetti.setVisible(false);
+        wasted.setOpacity(0);
+        wasted.setVisible(false);
         hintLb.setText(String.valueOf(hangMan.getSuggestsRemain()));
         fixWordFont(hangMan.displayCurrentWord(), wordFont);
         textWord.setText(hangMan.displayCurrentWord());
@@ -83,8 +91,10 @@ public class HangManController implements Initializable{
         endGameLb.setVisible(true);
         replayBtn.setVisible(true);
         transBtn.setVisible(true);
+        transBtn.setDisable(false);
         hintBtn.setDisable(true);
         textWord.setText(hangMan.getAnswer());
+        loseEffect();
         for (char c = 'A'; c <= 'Z'; c++) {
             String buttonId = "btn" + c;
             Button button = (Button) ap.lookup("#" + buttonId);
@@ -97,7 +107,9 @@ public class HangManController implements Initializable{
         endGameLb.setVisible(true);
         replayBtn.setVisible(true);
         transBtn.setVisible(true);
+        transBtn.setDisable(false);
         hintBtn.setDisable(true);
+        winEffect();
         for (char c = 'A'; c <= 'Z'; c++) {
             String buttonId = "btn" + c;
             Button button = (Button) ap.lookup("#" + buttonId);
@@ -137,8 +149,8 @@ public class HangManController implements Initializable{
             Button can = (Button) ap.lookup("#can" + String.valueOf(hangMan.getLife()+1));
             can.setVisible(false);
             if(hangMan.getLife()==0) {
-                loseScene();
                 flash(0, 0);
+                loseScene();
             } else flash(0, 1);
         }
     }
@@ -203,5 +215,49 @@ public class HangManController implements Initializable{
                   });
             })
         .start();
+        transBtn.setDisable(true);
+    }
+    public void setNode(Node node) {
+        ap.getChildren().clear();
+        ap.getChildren().add(node);
+    }
+    @FXML
+    public void showComponent(String path) {
+        try {
+            AnchorPane component = FXMLLoader.load(getClass().getResource(path));
+            setNode(component);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void handleOnClickMenu(){
+        showComponent("/FX/GameMenuUI.fxml");
+    }
+    public void winEffect(){
+        confetti.setVisible(true);
+        new Thread(()->{
+            Timeline sparkle = new Timeline(
+                    new KeyFrame(Duration.seconds(0.5), new KeyValue(confetti.opacityProperty(), 1)),
+                    new KeyFrame(Duration.seconds(3), new KeyValue(confetti.opacityProperty(), 1)),
+                    new KeyFrame(Duration.seconds(3.5), new KeyValue(confetti.opacityProperty(), 0)));
+            sparkle.play();
+            sparkle.setOnFinished(event ->{
+                confetti.setVisible(false);
+            });
+        }).start();
+    }
+    public void loseEffect(){
+        wasted.setVisible(true);
+        new Thread(()->{
+            Timeline sparkle = new Timeline(
+                    new KeyFrame(Duration.seconds(0.01), new KeyValue(wasted.opacityProperty(), 1)),
+                    new KeyFrame(Duration.seconds(1.5), new KeyValue(wasted.opacityProperty(), 1)),
+                    new KeyFrame(Duration.seconds(3), new KeyValue(wasted.opacityProperty(), 0)));
+            sparkle.play();
+            sparkle.setOnFinished(event ->{
+                wasted.setVisible(false);
+            });
+        }).start();
     }
 }

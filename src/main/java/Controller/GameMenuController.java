@@ -18,7 +18,6 @@ public class GameMenuController implements Initializable {
     private AnchorPane container;
     @FXML
     private Button multiBtn, hangmanBtn;
-
     public void setNode(Node node) {
         container.getChildren().clear();
         container.getChildren().add(node);
@@ -46,5 +45,4 @@ public class GameMenuController implements Initializable {
             }
         });
     }
-
 }
