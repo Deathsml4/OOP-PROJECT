@@ -9,8 +9,12 @@ import javafx.beans.property.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
@@ -28,13 +32,15 @@ import static javafx.util.Duration.seconds;
 
 public class GameController implements Initializable{
     @FXML
-    private Pane timer, quiz;
+    private Pane timer, quiz, wasted;
     @FXML
     private Button playBtn, nextBtn, optionA, optionB, optionC, optionD, transBtn;
     @FXML
     private Label question, scoreLb, attempLb, endGameLb;
     @FXML
-    private ImageView refresh, play, loading;
+    private ImageView refresh, play, loading, confetti;
+    @FXML
+    private AnchorPane container;
     private GameCore game = new GameCore();
     private static final Integer STARTTIME = 25;
     private IntegerProperty timeSeconds =
@@ -73,6 +79,10 @@ public class GameController implements Initializable{
         scoreLb.setId("score-label");
         attempLb.setId("score-label");
         timer.setId("game-timer");
+        confetti.setOpacity(0);
+        confetti.setVisible(false);
+        wasted.setOpacity(0);
+        wasted.setVisible(false);
         transBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -282,19 +292,8 @@ public class GameController implements Initializable{
             endGameLb.setLayoutX(348.999);
             endGameLb.setId("win-label");
             endGameLb.setVisible(true);
+            winEffect();
         }
-    }
-    public void handleOnClickQuit(){
-        play = new ImageView("/Sauce/Daco_4131967.png");
-        play.setFitWidth(15);
-        play.setFitHeight(18);
-        playBtn.setGraphic(play);
-        quiz.setVisible(false);
-        nextBtn.setDisable(true);
-        endGameLb.setVisible(false);
-        scoreLb.setText(String.format(" Điểm cao:  %d", game.getHighScore()));
-        attempLb.setVisible(false);
-        timer.setId("game-timer");
     }
     public void fixQuestFont(String text){
             Text tmpText = new Text(text);
@@ -309,6 +308,7 @@ public class GameController implements Initializable{
     }
     @FXML
     public void handleOnClickTrans(){
+        transBtn.setDisable(true);
         trans1.build(question.getText(), "vi", "en");
         trans2.build(optionA.getText(), "vi", "en");
         trans3.build(optionB.getText(), "vi", "en");
@@ -349,5 +349,49 @@ public class GameController implements Initializable{
         service.submit(()->{
             ret5 = trans5.executer();
         });
+
+    }
+    public void setNode(Node node) {
+        container.getChildren().clear();
+        container.getChildren().add(node);
+    }
+    @FXML
+    public void showComponent(String path) {
+        try {
+            AnchorPane component = FXMLLoader.load(getClass().getResource(path));
+            setNode(component);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void handleOnClickMenu(){
+        showComponent("/FX/GameMenuUI.fxml");
+    }
+    public void winEffect(){
+        confetti.setVisible(true);
+        new Thread(()->{
+            Timeline sparkle = new Timeline(
+                    new KeyFrame(Duration.seconds(0.5), new KeyValue(confetti.opacityProperty(), 1)),
+                    new KeyFrame(Duration.seconds(3), new KeyValue(confetti.opacityProperty(), 1)),
+                    new KeyFrame(Duration.seconds(3.5), new KeyValue(confetti.opacityProperty(), 0)));
+            sparkle.play();
+            sparkle.setOnFinished(event ->{
+                confetti.setVisible(false);
+            });
+        }).start();
+    }
+    public void loseEffect(){
+        wasted.setVisible(true);
+        new Thread(()->{
+            Timeline sparkle = new Timeline(
+                    new KeyFrame(Duration.seconds(0.01), new KeyValue(wasted.opacityProperty(), 1)),
+                    new KeyFrame(Duration.seconds(1.5), new KeyValue(wasted.opacityProperty(), 1)),
+                    new KeyFrame(Duration.seconds(3), new KeyValue(wasted.opacityProperty(), 0)));
+            sparkle.play();
+            sparkle.setOnFinished(event ->{
+                wasted.setVisible(false);
+            });
+        }).start();
     }
 }

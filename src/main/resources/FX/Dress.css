@@ -218,9 +218,9 @@
     -fx-pref-height: 54px;
 }
 #game-word-button-true{
-    -fx-effect: dropshadow(three-pass-box, rgb(0, 148, 50), 25, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgb(0, 148, 50), 30, 0.4, 0, 0);
     -fx-background-radius: 15px;
-    -fx-text-fill: #009432;
+    -fx-text-fill: #ecf0f1;
     -fx-font-size: 14px;
     -fx-font-weight: 700;
     -fx-text-alignment: center;
@@ -276,6 +276,9 @@
 }
 .hang-man-text{
     -fx-text-alignment: center;
+}
+.can-button{
+    -fx-background-color: transparent;
 }
 .game-pane{
     -fx-background-color:   #34a0a4;
@@ -349,6 +352,11 @@
     -fx-background-color: rgb(245, 207, 201);
     -fx-background-radius: 5;
     -fx-border-radius: 5;
+}
+.pane-lose{
+    -fx-background-color: rgba(178, 42, 0, 0.44);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
 }
 .warning-alert{
     -fx-font-size: 12px;
