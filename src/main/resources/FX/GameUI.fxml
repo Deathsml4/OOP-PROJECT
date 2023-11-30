@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="563.0" maxWidth="834.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="834.0" styleClass="container" stylesheets="@Dress.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameController">
+<AnchorPane fx:id="container" maxHeight="563.0" maxWidth="834.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="834.0" styleClass="container" stylesheets="@Dress.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameController">
    <children>
       <ImageView fitHeight="564.0" fitWidth="836.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -46,6 +46,11 @@
                   <Tooltip text="Dịch" />
                </tooltip>
             </Button>
+            <ImageView fx:id="confetti" fitHeight="563.0" fitWidth="573.0" layoutX="136.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/giphy.gif" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Label fx:id="scoreLb" layoutX="50.0" layoutY="29.7" prefHeight="34.0" prefWidth="88.0" styleClass="score-label" stylesheets="@Dress.css" text=" Điểm cao:" />
@@ -70,5 +75,15 @@
       </Button>
       <Label fx:id="endGameLb" alignment="CENTER" contentDisplay="CENTER" layoutX="328.6" layoutY="70.0" prefHeight="25.0" prefWidth="185.0" styleClass="score-label" stylesheets="@Dress.css" text="Vấn đề kĩ năng! Thử lại nào!" textAlignment="CENTER" />
       <Pane fx:id="timer" layoutX="50.8304" layoutY="12.0" prefHeight="1.0" prefWidth="732.5" styleClass="game-timer" stylesheets="@Dress.css" />
+      <Button contentDisplay="GRAPHIC_ONLY" layoutX="793.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleOnClickMenu" prefHeight="15.0" prefWidth="54.0" styleClass="game-button" stylesheets="@Dress.css" text="Next">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="17.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/PngItem_1608357.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Pane fx:id="wasted" prefHeight="564.0" prefWidth="835.0" styleClass="pane-lose" stylesheets="@Dress.css" />
    </children>
 </AnchorPane>

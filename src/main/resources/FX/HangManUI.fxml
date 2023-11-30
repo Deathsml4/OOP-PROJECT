@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="ap" maxHeight="563.0" maxWidth="834.0" prefHeight="563.0" prefWidth="834.0" styleClass="container" stylesheets="@Dress.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HangManController">
@@ -210,7 +211,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="can8" contentDisplay="GRAPHIC_ONLY" layoutX="632.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+      <Button fx:id="can8" contentDisplay="GRAPHIC_ONLY" layoutX="632.0" layoutY="305.0" mnemonicParsing="false" styleClass="can-button" stylesheets="@Dress.css" text="Button">
          <graphic>
             <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -219,7 +220,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="can7" contentDisplay="GRAPHIC_ONLY" layoutX="582.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+      <Button fx:id="can7" contentDisplay="GRAPHIC_ONLY" layoutX="582.0" layoutY="305.0" mnemonicParsing="false" styleClass="can-button" stylesheets="@Dress.css" text="Button">
          <graphic>
             <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -228,7 +229,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="can6" contentDisplay="GRAPHIC_ONLY" layoutX="532.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+      <Button fx:id="can6" contentDisplay="GRAPHIC_ONLY" layoutX="532.0" layoutY="305.0" mnemonicParsing="false" styleClass="can-button" stylesheets="@Dress.css" text="Button">
          <graphic>
             <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -237,7 +238,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="can5" contentDisplay="GRAPHIC_ONLY" layoutX="482.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+      <Button fx:id="can5" contentDisplay="GRAPHIC_ONLY" layoutX="482.0" layoutY="305.0" mnemonicParsing="false" styleClass="can-button" stylesheets="@Dress.css" text="Button">
          <graphic>
             <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -246,7 +247,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="can4" contentDisplay="GRAPHIC_ONLY" layoutX="317.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+      <Button fx:id="can4" contentDisplay="GRAPHIC_ONLY" layoutX="317.0" layoutY="305.0" mnemonicParsing="false" styleClass="can-button" stylesheets="@Dress.css" text="Button">
          <graphic>
             <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -255,7 +256,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="can3" contentDisplay="GRAPHIC_ONLY" layoutX="267.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+      <Button fx:id="can3" contentDisplay="GRAPHIC_ONLY" layoutX="267.0" layoutY="305.0" mnemonicParsing="false" styleClass="can-button" stylesheets="@Dress.css" text="Button">
          <graphic>
             <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -264,7 +265,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="can2" contentDisplay="GRAPHIC_ONLY" layoutX="217.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+      <Button fx:id="can2" contentDisplay="GRAPHIC_ONLY" layoutX="217.0" layoutY="305.0" mnemonicParsing="false" styleClass="can-button" stylesheets="@Dress.css" text="Button">
          <graphic>
             <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -273,7 +274,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="can1" contentDisplay="GRAPHIC_ONLY" layoutX="167.0" layoutY="305.0" mnemonicParsing="false" styleClass="switch-button" stylesheets="@Dress.css" text="Button">
+      <Button fx:id="can1" contentDisplay="GRAPHIC_ONLY" layoutX="167.0" layoutY="305.0" mnemonicParsing="false" styleClass="can-button" stylesheets="@Dress.css" text="Button">
          <graphic>
             <ImageView fitHeight="55.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -282,5 +283,23 @@
             </ImageView>
          </graphic>
       </Button>
+      <Button blendMode="SRC_ATOP" contentDisplay="GRAPHIC_ONLY" layoutX="738.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleOnClickMenu" prefHeight="50.0" prefWidth="110.0" styleClass="game-button" stylesheets="@Dress.css" text="Again" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Sauce/PngItem_1608357.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fx:id="confetti" fitHeight="518.0" fitWidth="540.0" layoutX="151.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Sauce/giphy.gif" />
+         </image>
+      </ImageView>
+      <Pane fx:id="wasted" prefHeight="564.0" prefWidth="835.0" styleClass="pane-lose" stylesheets="@Dress.css" />
     </children>
 </AnchorPane>
