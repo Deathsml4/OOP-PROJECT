@@ -215,7 +215,11 @@ public class SearchController implements Initializable{
         list.remove(i);
         break;
       }
-    listResults.setItems(list);
+    if(!searchCheck){
+      setHistory();
+    }else {
+      listResults.setItems(list);
+    }
     headerOfExplanation.setVisible(false);
     explanation.setVisible(false);
   }
@@ -226,8 +230,11 @@ public class SearchController implements Initializable{
     Optional<ButtonType> option = alertWarning.showAndWait();
     if (option.get() == ButtonType.OK) {
       app.delete(englishWord.getText());
-      refreshAfterDeleting();
       trie.delete(englishWord.getText());
+      if(app.checkDuplicateHistory(englishWord.getText())){
+        app.deleteDuplicateHistory(englishWord.getText());
+      }
+      refreshAfterDeleting();
       alerts.showAlertInfo("Thông báo", "Xóa từ vựng thành công!");
     } else alerts.showAlertInfo("Thông báo", "Không có sự thay đổi nào!");
   }
