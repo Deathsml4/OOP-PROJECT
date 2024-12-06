@@ -55,13 +55,23 @@ public class Trie {
         for (int level = 0; level < length; level++) {
             char index = prefix.charAt(level);
             if (p.child.get(index) == null) {
-                getSearchWords();
+                //System.out.println("Sai roi em");
+                return getSearchWords();
             }
 
             p = p.child.get(index);
         }
 
         dfsGetWordsSubtree(p, prefix);
+        return getSearchWords();
+    }
+
+    public static ArrayList<String> showAllWord() {
+        searchWords.clear();
+        //int length = prefix.length();
+        TrieNode p = root;
+
+        dfsGetWordsSubtree(p, "");
         return getSearchWords();
     }
 
